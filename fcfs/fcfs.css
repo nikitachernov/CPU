@@ -23,3 +23,5 @@
 #total_results_table { margin-top: 10px; }
 
 #total_results_table td { width: 150px; }
+
+#average_waiting_time { color: #f63e4c; }

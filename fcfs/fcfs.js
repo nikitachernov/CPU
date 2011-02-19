@@ -105,6 +105,7 @@ function reduce_p2() {
     setTimeout('reduce_p2()', delay);
   }
   else {
+    do_average();
     start_reduce_p3();
   }
 }
@@ -116,14 +117,11 @@ function reduce_p3() {
     $("#" + process).css("width", width);
     setTimeout('reduce_p3()', delay);
   }
-  else {
-    do_average();
-  }
 }
 
 function do_average() {
   $("#average_waiting_time").show();
-  $("#total_average_time_value").html(parseInt(
+  $("#average_waiting_time_value").html(parseInt(
     (0 + parseInt($("#p2_waiting_time").html()) + parseInt($("#p3_waiting_time").html()))/3
     ));
 }
