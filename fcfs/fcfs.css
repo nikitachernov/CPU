@@ -1,0 +1,25 @@
+#params input { margin-right: 50px; }
+
+#action span.process {
+  border: 1px solid;
+  min-height: 20px;
+  float: left;
+  margin-right: -1px;
+}
+
+#p1 { background-color: #dcff40; }
+#p2 { background-color: #36d9cf; }
+#p3 { background-color: #ffd040; }
+
+#action_buttons { margin: 15px 0 0 -15px; }
+
+#results { clear: both; }
+
+#results_table td {
+  text-align: center;
+  width: 85px;
+}
+
+#total_results_table { margin-top: 10px; }
+
+#total_results_table td { width: 150px; }

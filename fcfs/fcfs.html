@@ -2,11 +2,70 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CPU | First-Come First-Served</title>
     <script src="../lib/jquery-1.5.min.js"></script>
     <script src="fcfs.js"></script>
+    <link rel="stylesheet" href="../lib/application.css" type="text/css">
+    <link rel="stylesheet" href="fcfs.css" type="text/css">
+    <title>CPU | First-Come First-Served</title>
   </head>
   <body>
-    <h1>First-Come First-Served</h1>
+    <h1>First-Come, First-Served</h1>
+
+    <div id="params">
+      <h2>Set burst time:</h2>
+      P1 burst time: <input id="p1_time" class="p_time" size="3" maxlength="3" value="10"/>
+      P2 burst time: <input id="p2_time" class="p_time" size="3" maxlength="3" value="10"/>
+      P3 burst time: <input id="p3_time" class="p_time" size="3" maxlength="3" value="10"/>
+      Delay: <input id="delay" size="3" maxlength="3" value="10"/>
+      <button type="button" id="start">Start!</button>
+    </div>
+
+    <div id="action">
+      <span id="p1" class="process"></span>
+      <span id="p2" class="process"></span>
+      <span id="p3" class="process"></span>
+      <div id="action_buttons">
+        <button type="button" id="reset">Reset</button>
+        <button type="button" id="revert">Revert</button>
+      </div>
+    </div>
+
+    <div id="results">
+      <table id="results_table">
+        <thead>
+          <tr>
+            <td>Process</td>
+            <td> Waiting time</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P1</td>
+            <td id="p1_waiting_time">0</td>
+          </tr>
+          <tr>
+            <td>P2</td>
+            <td id="p2_waiting_time"></td>
+          </tr>
+          <tr>
+            <td>P3</td>
+            <td id="p3_waiting_time"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="total_results_table">
+        <tbody>
+          <tr>
+            <td>Total burst time:</td>
+            <td id="total_burst_time"></td>
+          </tr>
+          <tr id="average_waiting_time">
+            <td>Average waiting time:</td>
+            <td id="total_average_time_value"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
