@@ -1,21 +1,21 @@
 <!DOCTYPE html> 
 <html> 
-  <head> 
+  <head>
     <meta charset="utf-8"> 
     <script src="../lib/jquery-1.5.min.js"></script> 
     <script src="rr.js"></script> 
     <link rel="stylesheet" href="rr.css" type="text/css"> 
     <title>CPU | First-Come First-Served</title> 
-  </head> 
+  </head>
   <body> 
-    <h1>Round robin</h1> 
+    <h1>Round robin</h1>
 	<div>
-		<div class="left">Process length:<input type="text" id="ptime" maxlength="5" size="5" value="5">&nbsp;&nbsp;</div>
+		<div class="left">Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;</div>
 		
-		<div class="left">Process starts at:<input type="text" id="starts_at" maxlength="5" size="5" value="0">&nbsp;&nbsp;</div>
+		<div class="left">Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;</div>
 
-		<div class="left"><input type="button" onclick="pl.addNew($('#ptime').val(), $('#starts_at').val());" value="New process"></div>
-		<div class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Start"></div>
+		<div class="left"><input type="button" onclick="pl.addNew($('#atime').val(), $('#btime').val());" value="New process"></div>
+		<!--div class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pl.StartFIFS()" value="Start"></div-->
 		
 		<div class="clear"></div>
 		Processes:
