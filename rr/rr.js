@@ -1,7 +1,7 @@
 var PROCESS_MAX_LENGTH = 200;
 var PROCESS_MAX_START = 1000;
-var PX_PER_SECOND = 20;
-var PROCESS_HEIGHT = 30;
+var PX_PER_SECOND = 21;
+var PROCESS_HEIGHT = 28;
 
 function Process(i, arrival, burst, color) {
 	this.id = -1;
@@ -21,7 +21,7 @@ function Process(i, arrival, burst, color) {
 Process.prototype.output = function() {
 	var margin = this.arrival * PX_PER_SECOND;
 	var width = this.burst * PX_PER_SECOND - 2;
-	return '<div id="proc_'+ this.id +'" class="pl" style="margin-left: '+ margin + 'px; height: '+ PROCESS_HEIGHT +'px; width: '+ width +'px; background-color: #'+ this.color +'">P'+ this.id +' ('+ this.arrival +', '+ this.burst +')</div>';
+	return '<div id="proc_'+ this.id +'" class="pl" style="margin-left: '+ margin + 'px; line-height: '+ PROCESS_HEIGHT +'px; height: '+ PROCESS_HEIGHT +'px; width: '+ width +'px; background-color: #'+ this.color +'">P'+ this.id +' <span>('+ this.arrival +', '+ this.burst +')</span></div>';
 }
 
 function ProcessList() {
@@ -46,27 +46,28 @@ ProcessList.prototype.addNew = function(arrival, burst) {
 	var new_color = this.colors[new_id % this.colors.length];
 	var p = new Process(new_id, arrival, burst, new_color);
 	if (p.id == -1) return false;
-	
 	this.max_arrival = arrival;
-	/*if (startsAt < this.cur_time) {
-		alert('Please add process after the last process in the list.');
-		return false;
-	}
-	var next_time = startsAt + time;
-	$('#starts_at').val(next_time);
-	this.cur_time = next_time;
-	
-	var margin_time = 0;
-	if (this.count > 0) {
-		var prev_p = this.processes[this.count - 1];
-		margin_time = startsAt - (prev_p.startsAt + prev_p.time);
-		margin_time = margin_time * PX_PER_SECOND;	
-	}
-	*/
 	$('#ProcessList').append(p.output());
-
 	this.processes[new_id] = p;
 	this.count++;
+	if (this.count == 1) {
+		this.outputTimeLine();
+	}
+	
+}
+ProcessList.prototype.outputTimeLine = function() {
+	$('#timeline').show();
+	var doc_width = $('#timeline').width();
+	var sec = 0;
+	var timeline_sec = 5;
+	var limit = doc_width - PX_PER_SECOND * timeline_sec;
+	for (var i = 0; i <= limit; i+= PX_PER_SECOND * timeline_sec) {
+		if (i + PX_PER_SECOND * timeline_sec <= limit) width = PX_PER_SECOND * timeline_sec;
+		else width = '20';
+		$('#timeline').append('<div  style="width: '+ width +'px;" class="timeline_item"><div class="timeline_item_text">|<br/><span>'+ sec +'</span></div></div>');
+		sec+= timeline_sec;
+	}
+	//$('#timeline').append('<div style=""></div>');
 }
 ProcessList.prototype.startFIFS = function() {
 	
