@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../lib/jquery-1.5.min.js"></script>
+    <script src="../lib/process.js"></script>
+    <script src="first_come_first_served.js"></script>
+    <link rel="stylesheet" href="../lib/application.css" type="text/css">
+    <link rel="stylesheet" href="first_come_first_served.css" type="text/css">
+    <title>CPU | First-Come First-Served</title>
+  </head>
+  <body>
+    <h1>First-Come, First-Served</h1>
+    <div>
+      <div class="left">Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;</div>
+      <div class="left">Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;</div>
+
+      <div class="left"><input type="button" onclick="pl.addNew($('#atime').val(), $('#btime').val());" value="New process"></div>
+      <!--div class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pl.StartFIFS()" value="Start"></div-->
+
+      <div class="clear"></div>
+      Processes:
+      <div id="ProcessList"></div>
+      <div id="timeline">Arrival time<div style="float: right; margin-top: -11px;">&gt;</div></div>
+
+      <div class="clear"></div>
+      <br/>
+
+    </div>
+  </body> 
+</html>
