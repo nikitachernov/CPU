@@ -1,9 +1,0 @@
-.left {float: left;}
-.clear {clear: both;}
-#ProcessList {  background: url('lines.png'); width: 89%;}
-.pl {border: 1px solid gray; text-align: center; }
-.pl span {font-size: 13px; }
-#timeline {border-top: 1px solid gray; display: none; margin-top: 10px; width: 90%; text-align: right;color: gray;}
-.timeline_item {float: left; position: relative; padding-top: 5px; }
-.timeline_item_text {position: absolute;width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
-.timeline_item_text span {font-size: 14px;}
