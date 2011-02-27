@@ -1,9 +1,11 @@
-// beforeEach(function() {
-//   this.addMatchers({
-//     toBePlaying: function(expectedSong) {
-//       var player = this.actual;
-//       return player.currentlyPlayingSong === expectedSong
-//           && player.isPlaying;
-//     }
-//   })
-// });
+beforeEach(function() {
+
+  window.alert = function() {}; // Block alerts
+
+  this.addMatchers({
+    toBeCreated: function(expectedSong) {
+      var process = this.actual;
+      return process.id > 0
+    }
+  })
+});
