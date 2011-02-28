@@ -21,7 +21,7 @@ describe("Process", function() {
       });
 
       it("should set process id", function() {
-        expect(process.id === i);
+        expect(process.id).toEqual(i);
       });
 
       it("should set arrival time", function() {
