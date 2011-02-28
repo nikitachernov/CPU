@@ -9,7 +9,7 @@ body {padding: 0 15px 15px 15px;}
   margin: 25px 15px 15px 25px;
 }
 
-.pl {border: 1px solid gray; text-align: center;}
+.pl {border: 1px solid gray; text-align: center; position: relative;}
 .pl span {font-size: 13px;}
 
 #timeline {
