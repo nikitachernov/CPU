@@ -5,11 +5,13 @@ $(document).ready(function() {
   
 function add_start_button_click_handler() {
   $("#start").click(function() {
+    $("#start, #new_process").hide();
     process_list.startFIFS();
   });
 }
 
 ProcessList.prototype.startFIFS = function() {
+  this.current_process = 1;
   this.run_current_process();
 }
 
