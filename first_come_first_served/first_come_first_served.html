@@ -17,8 +17,8 @@
       <div class="left">Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;</div>
       <div class="left">Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;</div>
 
-      <div class="left"><input type="button" onclick="pl.addNew($('#atime').val(), $('#btime').val());" value="New process"></div>
-      <div class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="pl.startFIFS()" value="Start"></div>
+      <div class="left"><input id="new_process" type="button" value="New process"></div>
+      <div class="left"><input id="start" type="button" value="Start"></div>
 
       <div class="clear"></div>
       Processes:

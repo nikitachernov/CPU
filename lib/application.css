@@ -3,14 +3,16 @@ body {padding: 0 15px 15px 15px;}
 .left {float: left;}
 .clear {clear: both;}
 
+#start {margin-left: 30px;}
+
 #ProcessList {
   background: url('../images/lines.png');
   width: 89%;
   margin: 25px 15px 15px 25px;
 }
 
-.pl {border: 1px solid gray; text-align: center; position: relative;}
-.pl span {font-size: 13px;}
+.process_list {border: 1px solid gray; text-align: center; position: relative;}
+.process_list span {font-size: 13px;}
 
 #timeline {
   border-top: 1px solid gray;
