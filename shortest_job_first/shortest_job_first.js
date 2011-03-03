@@ -7,11 +7,11 @@ $(document).ready(function() {
 function add_start_button_click_handler() {
   $("#start").click(function() {
     $("#start, #new_process").hide();
-    process_list.startFIFS();
+    process_list.startSJF);
   });
 }
 
-ProcessList.prototype.startFIFS = function() {
+ProcessList.prototype.startSJF = function() {
   this.current_process = 1;
   this.run_current_process();
 }
