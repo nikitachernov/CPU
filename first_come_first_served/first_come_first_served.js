@@ -1,38 +1,35 @@
+
 $(document).ready(function() {
   add_start_button_click_handler();
 });
 
-  
 function add_start_button_click_handler() {
   $("#start").click(function() {
     $("#start, #new_process").hide();
-    process_list.startFIFS();
+    process_list.startFCFS();
   });
 }
 
-ProcessList.prototype.startFIFS = function() {
-  this.current_process = 1;
-  this.run_current_process();
-}
 
-ProcessList.prototype.run_current_process = function() {
-  var process = this.processes[this.current_process];
-  process.work()
-}
-
-ProcessList.prototype.run_next_process = function() {
-  if (this.count > this.current_process) {
-    this.current_process = this.current_process + 1;
-    this.run_current_process();
+ProcessList.prototype.startFCFS = function() {
+  var result = {};
+  var timer = 0;
+  var last_time = 0;
+/*
+[
+0: {'type': 'process', 'id' : 5, 	start: 0, end: 5,  color: },
+5: {'type': 'empty', 				start: 5, end: 15, color: },
+]
+*/
+  for (var k in this.processes) {
+	var proc = this.processes[k];
+	if (timer < proc.arrival) {
+		result[timer] = {'type': 'empty', 'start': timer, 'end': proc.arrival, 'color': 'gray'};
+		timer = proc.arrival;
+	}
+	result[timer] = {'type': 'proc', 'id' : proc.id, 'start': timer, 'end': (timer + proc.burst), 'color': proc.color};
+	timer += proc.burst;
+	last_time = timer;
   }
-}
-
-Process.prototype.work = function() {
-  $('#p_work_'+ this.id).animate(
-    {width: '0'},
-    this.burst * 1000,
-    'linear', function() {
-      process_list.run_next_process();
-    }
-  );
+  this.animate(result, last_time);
 }

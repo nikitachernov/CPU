@@ -8,21 +8,29 @@ body {padding: 0 15px 15px 15px;}
 #ProcessList {
   background: url('../images/lines.png');
   width: 89%;
-  margin: 25px 15px 15px 25px;
+  margin: 25px 15px 0px 25px;
 }
 
-.process_list {border: 1px solid gray; text-align: center; position: relative;}
+.process_list {border: 1px solid gray; text-align: center; position: relative; height: 28px; line-height: 28px;}
 .process_list span {font-size: 13px;}
 
 #timeline {
   border-top: 1px solid gray;
   display: none;
-  margin: 10px 0 0 25px;
+  margin: 5px 0 0 25px;
   width: 90%;
   text-align: right;
   color: gray;
 }
 
 .timeline_item {float: left; position: relative; padding-top: 5px; }
-.timeline_item_text {position: absolute;width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
+.timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
+
+#gant_area {display: none;}
+#gant {margin-left: 25px;}
+
+.gant_process {width: 0; float: left; position: relative; border: 1px solid gray; text-align: center; height: 28px; line-height: 28px; margin-bottom: 25px;}
+.gant_time {position: absolute; bottom: -25px; left: -6px; font-size: 14px; color: gray; }
+.gant_last_time {float: left; position: relative;height: 28px; line-height: 28px;  margin-bottom: 25px;}
+.empty_bg {background: url('../images/empty_bg.png')}
