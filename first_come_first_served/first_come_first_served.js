@@ -9,7 +9,6 @@ function add_start_button_click_handler() {
     });
 }
 
-
 ProcessList.prototype.startFCFS = function() {
     var result = {};
     var timer = 0;

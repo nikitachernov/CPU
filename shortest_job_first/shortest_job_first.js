@@ -1,52 +1,40 @@
 $(document).ready(function() {
-  add_start_button_click_handler();
+    add_start_button_click_handler();
 });
 
-  
 function add_start_button_click_handler() {
-  $("#start").click(function() {
-    $("#start, #new_process").hide();
-    process_list.startSJF();
-  });
+    $("#start").click(function() {
+        $("#start, #new_process").hide();
+        process_list.startSJB();
+    });
 }
 
-ProcessList.prototype.startSJF = function() {
-  var process;
-  for (id in this.processes) {
-    process = this.processes[id];
-    process.terminated = 'N';
-  }
-  this.run_shortest_process();
-}
-
-ProcessList.prototype.run_shortest_process = function() {
-  var shortest_process_id = 0;
-  var shortest_proces_burst = 0;
-  var process;
-  for (id in this.processes) {
-    process = this.processes[id];
-    console.log(process.terminated);
-    if (process.terminated == 'N' && (process.burst < shortest_proces_burst || shortest_proces_burst == 0)) {
-      shortest_proces_burst = process.burst;
-      shortest_process_id = process.id;
+ProcessList.prototype.startSJB = function() {
+    var result = {};
+    var timer = 0;
+    var last_time = 0;
+    /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
+        5: {'type': 'empty',             start: 5, end: 15, color: }] */
+    for (var k in this.processes) {
+        var proc = this.processes[k];
+        if (timer < proc.arrival) {
+            result[timer] = {
+                'type': 'empty',
+                'start': timer,
+                'end': proc.arrival,
+                'color': 'gray'
+            };
+            timer = proc.arrival;
+        }
+        result[timer] = {
+            'type': 'proc',
+            'id': proc.id,
+            'start': timer,
+            'end': (timer + proc.burst),
+            'color': proc.color
+        };
+        timer += proc.burst;
+        last_time = timer;
     }
-  }
-  if (shortest_process_id > 0)
-    this.processes[shortest_process_id].work();
-}
-
-ProcessList.prototype.run_next_shortest_process = function() {
-  this.run_shortest_process();
-}
-
-Process.prototype.work = function() {
-  var process = this;
-  $('#p_work_'+ this.id).animate(
-    {width: '0'},
-    process.burst * 1000,
-    'linear', function() {
-      process.terminated = 'Y';
-      process_list.run_next_shortest_process();
-    }
-  );
+    this.animate(result, last_time);
 }
