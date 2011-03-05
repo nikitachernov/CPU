@@ -13,6 +13,10 @@ ProcessList.prototype.startSJB = function() {
     var result = {};
     var timer = 0;
     var last_time = 0;
+
+    this.bubble_sort_by_burst();
+    console.log(this.processes);
+
     /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
         5: {'type': 'empty',             start: 5, end: 15, color: }] */
     for (var k in this.processes) {
@@ -37,4 +41,26 @@ ProcessList.prototype.startSJB = function() {
         last_time = timer;
     }
     this.animate(result, last_time);
+}
+
+ProcessList.prototype.bubble_sort_by_burst = function() {
+    var current, next;
+    var swapped = true;
+
+    do {
+        swapped = false;
+        for (var i in this.processes) {
+            i = parseInt(i, 10);
+            if (i == this.count) break;
+            
+            current = this.processes[i];
+            next = this.processes[i + 1];
+            if (current.burst > next.burst && current.arrival == next.arrival) {
+                this.processes[i] = next;
+                this.processes[i + 1] = current;
+                swapped = true;
+            }
+        }
+    }
+    while (swapped);
 }
