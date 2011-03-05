@@ -44,7 +44,8 @@ ProcessList.prototype.startSJB = function() {
 }
 
 ProcessList.prototype.bubble_sort_by_burst = function() {
-    var current, next;
+    var current,
+    next;
     var swapped = true;
 
     do {
@@ -52,7 +53,7 @@ ProcessList.prototype.bubble_sort_by_burst = function() {
         for (var i in this.processes) {
             i = parseInt(i, 10);
             if (i == this.count) break;
-            
+
             current = this.processes[i];
             next = this.processes[i + 1];
             if (current.burst > next.burst && current.arrival == next.arrival) {
