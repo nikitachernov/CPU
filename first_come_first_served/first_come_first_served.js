@@ -14,9 +14,8 @@ ProcessList.prototype.startFCFS = function() {
     var result = {};
     var timer = 0;
     var last_time = 0;
-
-    /*[0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
-       5: {'type': 'empty',             start: 5, end: 15, color: }]*/
+    /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
+        5: {'type': 'empty',             start: 5, end: 15, color: }] */
     for (var k in this.processes) {
         var proc = this.processes[k];
         if (timer < proc.arrival) {
