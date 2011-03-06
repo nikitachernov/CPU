@@ -41,16 +41,26 @@ ProcessList.prototype.parseProcessesInTime = function() {
 
         if (process == false) {
             // If no current process
-            for (var process_id in result) {
-                // Selects last entry
-                previous_process = result[process_id];
-            }
-            if (previous_process['type'] == 'empty') {
-                // If previous process was empty
-                result[previous_process['start']]['end'] = (time.time + 1);
-                // Continues it
-            }
-            else {
+            if (time.time > 0) {
+                for (var process_id in result) {
+                    // Selects last entry
+                    previous_process = result[process_id];
+                }
+                if (previous_process['type'] == 'empty') {
+                    // If previous process was empty
+                    result[previous_process['start']]['end'] = (time.time + 1);
+                    // Continues it
+                }
+                else {
+                    // Else makes new process entry
+                    result[time.time] = {
+                        'type': 'empty',
+                        'start': time.time,
+                        'end': time.time + 1,
+                        'color': 'gray'
+                    };
+                }
+            } else {
                 // Else makes new process entry
                 result[time.time] = {
                     'type': 'empty',
