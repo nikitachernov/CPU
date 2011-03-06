@@ -3,6 +3,7 @@ body {padding: 0 15px 15px 15px;}
 .left {float: left;}
 .clear {clear: both;}
 
+#interruptible {margin-left: 10px;}
 #start {margin-left: 30px;}
 
 #ProcessList {
