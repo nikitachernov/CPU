@@ -1,43 +1,26 @@
-var time = new Time();
-
-$(document).ready(function() {
-    add_start_button_click_handler();
-});
-
-function add_start_button_click_handler() {
-    $("#start").click(function() {
-        $("#start, #new_process").hide();
-        process_list.startSJB();
-    });
-}
-
-ProcessList.prototype.startSJB = function() {
+ProcessList.prototype.start = function() {
     if ($("#interruptible").val() == 'Y') {
         this.parseProcessesInTime();
     }
     else {
-        this.bubble_sort_by_burst();
+        this.bubbleSortByBurst();
         this.parseProcesses();
     }
 }
 
 ProcessList.prototype.parseProcessesInTime = function() {
-    var process;
+    var process, previous_process;
     var result = {};
-    var timer = 0;
-    var last_time = 0;
-    var previous_process;
 
-    for (var k in this.processes) {
+    for (var k in this.processes) { // Sets every process remaining burst
         process = this.processes[k];
         process.remaining_burst = process.burst;
     }
+
     while (this.hasActiveProcesses()) {
         process = this.shortestCurrentProcess();
-
         /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
             5: {'type': 'empty',             start: 5, end: 15, color: }] */
-
         if (process == false) {
             // If no current process
             if (time.time > 0) {
@@ -102,48 +85,9 @@ ProcessList.prototype.parseProcessesInTime = function() {
             this.processes[process.id].remaining_burst--;
         }
         time.tick();
-        last_time = time.time;
     }
     // console.log(result);
-    this.animate(result, last_time);
-}
-
-ProcessList.prototype.shortestCurrentProcess = function() {
-    var shortest_time = Number.MAX_VALUE;
-    var shortest_process;
-    var process;
-    for (var i in this.processes) {
-        process = this.processes[i];
-        if (process.remaining_burst > 0 && process.remaining_burst < shortest_time && process.arrival <= time.time) {
-            shortest_process = process;
-            shortest_time = process.remaining_burst;
-        }
-    }
-    if (shortest_time == Number.MAX_VALUE) return false;
-    return shortest_process;
-}
-
-ProcessList.prototype.bubble_sort_by_burst = function() {
-    var current,
-    next;
-    var swapped = true;
-
-    do {
-        swapped = false;
-        for (var i in this.processes) {
-            i = parseInt(i, 10);
-            if (i == this.count) break;
-
-            current = this.processes[i];
-            next = this.processes[i + 1];
-            if (current.burst > next.burst && current.arrival == next.arrival) {
-                this.processes[i] = next;
-                this.processes[i + 1] = current;
-                swapped = true;
-            }
-        }
-    }
-    while (swapped);
+    this.animate(result, time.time);
 }
 
 ProcessList.prototype.parseProcesses = function() {

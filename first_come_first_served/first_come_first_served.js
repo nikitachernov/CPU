@@ -1,15 +1,4 @@
-$(document).ready(function() {
-    add_start_button_click_handler();
-});
-
-function add_start_button_click_handler() {
-    $("#start").click(function() {
-        $("#start, #new_process").hide();
-        process_list.startFCFS();
-    });
-}
-
-ProcessList.prototype.startFCFS = function() {
+ProcessList.prototype.start = function() {
     var result = {};
     var timer = 0;
     var last_time = 0;
