@@ -86,7 +86,6 @@ ProcessList.prototype.parseProcessesInTime = function() {
         }
         time.tick();
     }
-    // console.log(result);
     this.animate(result, time.time);
 }
 
