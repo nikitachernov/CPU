@@ -32,8 +32,7 @@ ProcessList.prototype.parseProcessesInTime = function() {
         process = this.processes[k];
         process.remaining_burst = process.burst;
     }
-
-    for (var i = 0; i <= 10; i++) {
+    while (this.hasActiveProcesses()) {
         process = this.shortestCurrentProcess();
 
         /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
