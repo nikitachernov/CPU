@@ -24,15 +24,15 @@ body {padding: 0 15px 15px 15px;}
   color: gray;
 }
 
-.timeline_item {float: left; position: relative; padding-top: 5px; }
+.timeline_item {float: left; position: relative; padding-top: 5px;}
 .timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
 
-table.result_table th {width: 120px; text-align: left;}
-.headerSortUp {background-color: #ffe3d5;}
-.headerSortDown {background-color: #d1cef7;}
+table.result_table th {text-align: left; padding: 5px 20px 5px 20px;}
+.headerSortUp {background-image: url(../images/asc.gif); background-repeat: no-repeat; background-position: right; text-decoration:underline}
+.headerSortDown {background-image: url(../images/desc.gif); background-repeat: no-repeat; background-position: right; text-decoration:underline}
 
-#result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px; padding-right: 15px;}
+#result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px 5px 5px 20px;}
 
 #average_tbl {border-top: 1px solid gray; border-bottom: 1px solid gray; margin-top: 25px;}
 #average_tbl td {width: 117px;}
