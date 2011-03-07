@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="../lib/jquery-1.5.min.js" type="text/javascript"></script>
+    <script src="../lib/jquery.tablesorter.min.js" type="text/javascript"></script>
     <script src="../lib/Process.js" type="text/javascript"></script>
     <script src="../lib/ProcessList.js" type="text/javascript"></script>
     <script src="../lib/Time.js" type="text/javascript"></script>
@@ -52,11 +53,14 @@
         <h2>
           Gantt chart:
         </h2>
-        <div id="gant"></div>
+        <div id="gant"></div><br>
+        <div class="clear"></div>
+        <h2 class="results">
+          Results:
+        </h2>
+        <table id="result_tbl" cellspacing="0" cellpadding="0" class="result_table"></table>
+        <table id="average_tbl" cellspacing="0" cellpadding="0" class="result_table"></table>
       </div>
-	  <div class="clear"></div>
-		<h2>Results:</h2>
-		<table id="result_tbl" cellspacing="0" cellpadding="0"></table>
     </div>
   </body>
 </html>

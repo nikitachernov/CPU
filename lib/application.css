@@ -28,11 +28,20 @@ body {padding: 0 15px 15px 15px;}
 .timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
 
-#result_tbl {display: none;}
+table.result_table th {width: 120px; text-align: left;}
+.headerSortUp {background-color: #ffe3d5;}
+.headerSortDown {background-color: #d1cef7;}
+
 #result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px; padding-right: 15px;}
+
+#average_tbl {border-top: 1px solid gray; border-bottom: 1px solid gray; margin-top: 25px;}
+#average_tbl td {width: 117px;}
+
 
 #gant_area {display: none;}
 #gant {margin-left: 25px;}
+
+h2.results{display: none;}
 
 .bold {font-weight: 700;}
 .gant_process {width: 0; float: left; position: relative; border: 1px solid gray; text-align: center; height: 28px; line-height: 28px; margin-bottom: 25px;}
