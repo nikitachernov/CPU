@@ -28,9 +28,16 @@ body {padding: 0 15px 15px 15px;}
 .timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
 
-table.result_table th {text-align: left; padding: 5px 20px 5px 20px;}
-.headerSortUp {background-image: url('images/asc.gif'); background-repeat: no-repeat; background-position: right; text-decoration:underline}
-.headerSortDown {background-image: url('images/desc.gif'); background-repeat: no-repeat; background-position: right; text-decoration:underline}
+table.result_table th {
+  text-align: left;
+  padding: 5px 20px 5px 20px;
+  background-image: url('images/ad.gif');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.headerSortUp, .headerSortDown {text-decoration:underline;}
+.headerSortUp {background-image: url('images/asc.gif') !important; color: blue;}
+.headerSortDown {background-image: url('images/desc.gif') !important; color: red;}
 
 #gant_area {display: none;}
 #gant {margin-left: 25px;}
