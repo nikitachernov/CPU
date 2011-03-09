@@ -3,6 +3,11 @@ body {padding: 0 15px 15px 15px;}
 .left {float: left;}
 .clear {clear: both;}
 
+h1 {float: left;}
+
+#nav {float: right;}
+#nav a {float: left; margin-right: 10px;}
+
 #interruptible {margin-left: 10px;}
 #start {margin-left: 30px;}
 
