@@ -14,7 +14,6 @@ ProcessList.prototype.start = function() {
     var length;
     while (this.hasActiveProcesses()) {
         process = this.next_round_process(current_id);
-        console.log(process);
         /* [0: {'type': 'process', 'id' : 5, start: 0, end: 5,  color: },
             5: {'type': 'empty',             start: 5, end: 15, color: }] */
         if (process == false) {
