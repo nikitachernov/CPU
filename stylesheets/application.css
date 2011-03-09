@@ -45,7 +45,12 @@ table.result_table th {
 #result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px 5px 5px 20px;}
 
 #average_tbl {border-top: 1px solid gray; border-bottom: 1px solid gray; margin-top: 25px;}
-#average_tbl td {width: 117px;}
+
+table td.row_name {width: 124px;}
+table td.arrival_time {width: 124px;}
+table td.burst_time {width: 111px;}
+table td.wait_time {width: 130px;}
+table td.turn_time {width: 135px;}
 
 h2.results{display: none;}
 
