@@ -9,7 +9,7 @@ h1 {float: left;}
 #nav a {float: left; margin-right: 10px;}
 
 #interruptible {margin-left: 10px;}
-#start {margin-left: 30px;}
+#start {margin-left: 30px; width: 80px; font-weight: 700;}
 
 #ProcessList {
   background: url('images/lines.png');
@@ -48,8 +48,10 @@ table.result_table th {
 #gant {margin-left: 25px;}
 
 #result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px 5px 5px 20px;}
-
+#result_tbl thead th{cursor: pointer;}
+#result_tbl td.middle {padding:0; text-align: center; }
 #average_tbl {border-top: 1px solid gray; border-bottom: 1px solid gray; margin-top: 25px;}
+
 
 table td.row_name {width: 124px;}
 table td.arrival_time {width: 124px;}
