@@ -8,20 +8,20 @@
     <script src="../lib/ProcessList.js" type="text/javascript"></script>
     <script src="../lib/Time.js" type="text/javascript"></script>
     <script src="../lib/application.js" type="text/javascript"></script>
-    <script src="first_come_first_served.js" type="text/javascript"></script>
+    <script src="priority.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../stylesheets/application.css" type="text/css">
     <title>
-      CPU | First-Come First-Served
+      CPU | Priority
     </title>
   </head>
   <body>
     <h1>
-      First-Come, First-Served
+      Priority
     </h1>
     <div id="nav">
+      <a href="../first_come_first_served/first_come_first_served.html">First Come, First Served</a>
       <a href="../shortest_job_first/shortest_job_first.html">Shortest Job First</a>
       <a href="../round_robin/round_robin.html">Round Robin</a>
-      <a href="../priority/priority.html">Priority</a>
     </div>
     <div class="clear">
       <div id="control">
@@ -32,13 +32,63 @@
           Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;
         </div>
         <div class="left">
+          Priority:
+          <select id="process_priority">
+            <option value="1">1: high</option>
+            <option value="2">2: medium</option>
+            <option value="3">3: low</option>
+          </select>
+        </div>
+        <div class="left">
           <input id="new_process" type="button" value="New process">
         </div>
         <div class="left">
           <input id="start" type="button" value="Start">
         </div>
+        <div class="left">
+          <select id="interruptible">
+            <option value="Y">
+              Interruptible
+            </option>
+            <option value="N">
+              Non-Interruptible
+            </option>
+          </select>
+        </div>
       </div>
       <div class="clear"></div>
+      <div class ="priority_types">
+        <div class="left">
+          Priority 1:
+          <select id="priority_1_type" class="priority_type">
+            <option value="1">First-Come, First-Served</option>
+            <option value="2">Shortest Job First</option>
+            <option value="2">Shortest Job First Interruptible</option>
+            <option value="2">Round Robin</option>
+          </select>
+        </div>
+        <div class="clear"></div>
+        <div class="left">
+          Priority 2:
+          <select id="priority_2_type" class="priority_type">
+            <option value="1">First-Come, First-Served</option>
+            <option value="2">Shortest Job First</option>
+            <option value="2">Shortest Job First Interruptible</option>
+            <option value="2">Round Robin</option>
+          </select>
+        </div>
+        <div class="clear"></div>
+        <div class="left">
+          Priority 3:
+          <select id="priority_3_type" class="priority_type">
+            <option value="1">First-Come, First-Served</option>
+            <option value="2">Shortest Job First</option>
+            <option value="2">Shortest Job First Interruptible</option>
+            <option value="2">Round Robin</option>
+          </select>
+        </div>
+        <div class="clear"></div>
+      </div>
       <h2 class="main">
         Processes:
       </h2>

@@ -1,9 +1,13 @@
-body {padding: 0 15px 15px 15px;}
+body {padding: 15px 15px 15px 15px;}
 
 .left {float: left;}
 .clear {clear: both;}
 
-h1 {float: left;}
+h1 {float: left; margin-top: 0;}
+h2.main {display: none;}
+
+div.priority_types {margin-top: 5px;}
+select.priority_type {margin-top: 5px;}
 
 #nav {float: right;}
 #nav a {float: left; margin-right: 10px;}
