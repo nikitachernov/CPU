@@ -8,6 +8,8 @@ h2.main {display: none;}
 
 div.priority_types {margin-top: 5px;}
 select.priority_type {margin-top: 5px;}
+select.priority_interruptible {margin-top: 5px;display:none;}
+div.qtime {margin-top: 3px; margin-left: 3px; display:none;}
 
 #nav {float: right;}
 #nav a {float: left; margin-right: 10px;}

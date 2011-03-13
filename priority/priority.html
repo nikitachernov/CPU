@@ -58,34 +58,76 @@
       </div>
       <div class="clear"></div>
       <div class ="priority_types">
-        <div class="left">
-          Priority 1:
-          <select id="priority_1_type" class="priority_type">
-            <option value="1">First-Come, First-Served</option>
-            <option value="2">Shortest Job First</option>
-            <option value="3">Shortest Job First Interruptible</option>
-            <option value="4">Round Robin</option>
-          </select>
+        <div class="priority">
+          <div class="left">
+            Priority 1:
+            <select id="priority_1_type" class="priority_type">
+              <option value="fcfs">First-Come, First-Served</option>
+              <option value="sjb">Shortest Job First</option>
+              <option value="rr">Round Robin</option>
+            </select>
+          </div>
+          <div class="left">
+            <select id="priority_1_interruptible" class="priority_interruptible">
+              <option value="Y">
+                Interruptible
+              </option>
+              <option value="N">
+                Non-Interruptible
+              </option>
+            </select>
+          </div>
+          <div class="left qtime">
+            Quant time:<input type="text" id="priority_1_qtime" class ="qtime" maxlength="5" size="5" value="3">
+          </div>
         </div>
         <div class="clear"></div>
-        <div class="left">
-          Priority 2:
-          <select id="priority_2_type" class="priority_type">
-            <option value="1">First-Come, First-Served</option>
-            <option value="2">Shortest Job First</option>
-            <option value="3">Shortest Job First Interruptible</option>
-            <option value="4">Round Robin</option>
-          </select>
+        <div class="priority">
+          <div class="left">
+            Priority 2:
+            <select id="priority_2_type" class="priority_type">
+              <option value="fcfs">First-Come, First-Served</option>
+              <option value="sjb">Shortest Job First</option>
+              <option value="rr">Round Robin</option>
+            </select>
+          </div>
+          <div class="left">
+            <select id="priority_2_interruptible" class="priority_interruptible">
+              <option value="Y">
+                Interruptible
+              </option>
+              <option value="N">
+                Non-Interruptible
+              </option>
+            </select>
+          </div>
+          <div class="left qtime">
+            Quant time:<input type="text" id="priority_2_qtime" class ="qtime" maxlength="5" size="5" value="3">
+          </div>
         </div>
         <div class="clear"></div>
-        <div class="left">
-          Priority 3:
-          <select id="priority_3_type" class="priority_type">
-            <option value="1">First-Come, First-Served</option>
-            <option value="2">Shortest Job First</option>
-            <option value="3">Shortest Job First Interruptible</option>
-            <option value="4">Round Robin</option>
-          </select>
+        <div class="priority">
+          <div class="left">
+            Priority 3:
+            <select id="priority_3_type" class="priority_type">
+              <option value="fcfs">First-Come, First-Served</option>
+              <option value="sjb">Shortest Job First</option>
+              <option value="rr">Round Robin</option>
+            </select>
+          </div>
+          <div class="left">
+            <select id="priority_3_interruptible" class="priority_interruptible">
+              <option value="Y">
+                Interruptible
+              </option>
+              <option value="N">
+                Non-Interruptible
+              </option>
+            </select>
+          </div>
+          <div class="left qtime">
+            Quant time:<input type="text" id="priority_3_qtime" class ="qtime" maxlength="5" size="5" value="3">
+          </div>
         </div>
         <div class="clear"></div>
       </div>
