@@ -1,0 +1,8 @@
+h1. CPU Scheduling
+
+"First­Come, First­Served (FCFS)":http://en.wikipedia.org/wiki/Scheduling_(computing)#First_in_first_out
+
+"Shortest Job First (SJF)":http://en.wikipedia.org/wiki/Scheduling_(computing)#Shortest_remaining_time
+
+"Round Robin":http://en.wikipedia.org/wiki/Scheduling_(computing)#Round-robin_scheduling
+
