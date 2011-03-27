@@ -1,13 +1,13 @@
 ProcessList.prototype.start = function() {
+    var proc;
     for (var k in this.processes) {
-        var proc = this.processes[k];
+        // Iterates through processes
+        proc = this.processes[k];
         if (time.time < proc.arrival) {
-            // Draws empty space before process arrival
-            gant.push_empty(time.time, time.time, proc.arrival);
-            time.jump(proc.arrival - time.time);
+            // Draws empty space before next process arrival
+            gant.push_empty(time.time, time.time, proc.arrival - time.time);
         }
-        gant.push_process(time.time, proc.id, time.time, time.time + proc.burst, proc.color);
-        time.jump(proc.burst);
+        gant.push_process(time.time, proc.id, time.time, proc.burst, proc.color);
     }
     gant.animate();
 }
