@@ -113,9 +113,9 @@ ProcessList.prototype.start = function() {
                 break;
             case 'rr':
                 if (priority_3_remaining_quant == 0)
-                process = this.next_round_process_by_priority(priority_2_robin_process_id, 3);
+                    process = this.next_round_process_by_priority(priority_3_robin_process_id, 3);
                 else
-                process = this.processes[priority_3_robin_process_id];
+                    process = this.processes[priority_3_robin_process_id];
                 break;
             }
         }
@@ -130,64 +130,58 @@ ProcessList.prototype.start = function() {
         else {
             switch (process.priority) {
             case "1":
-                // PRIORITY 1
                 switch (priority_1_type) {
                 case 'fcfs':
                     gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (priority_1_interruptible == 'Y') {
+                    if (priority_1_interruptible == 'Y')
                         gant.initiate_or_continue_process('proc', process.id, process.color);
-                    }
-                    else {
+                    else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
-                    }
                     break;
                 case 'rr':
                     if (process.remaining_burst < priority_1_qtime)
-                    length = process.remaining_burst;
+                        length = process.remaining_burst;
                     else
-                    length = priority_1_qtime;
+                        length = priority_1_qtime;
                     gant.push_process(time.time, process.id, time.time, length, process.color);
                     priority_1_robin_process_id = process.id;
                     break;
                 }
                 break;
             case "2":
-                // PRIORITY 2
                 switch (priority_2_type) {
                 case 'fcfs':
                     if (interruptible == 'Y')
-                    // among priorities
-                    gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color);
                     else
-                    gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
+                        gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
                     if (priority_2_interruptible == 'Y' || interruptible == 'Y')
-                    gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color);
                     else
-                    gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
+                        gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'rr':
                     if (interruptible == 'Y') {
                         if (priority_2_remaining_quant == 0) {
                             if (process.remaining_burst < priority_2_qtime)
-                            priority_2_remaining_quant = process.remaining_burst;
+                                priority_2_remaining_quant = process.remaining_burst;
                             else
-                            priority_2_remaining_quant = priority_2_qtime;
+                                priority_2_remaining_quant = priority_2_qtime;
                             gant.push_process(time.time, process.id, time.time, 1, process.color);
                         }
-                        else {
+                        else
                             gant.initiate_or_continue_process('proc', process.id, process.color);
-                        }
                         priority_2_remaining_quant--;
                     }
                     else {
                         if (process.remaining_burst < priority_2_qtime)
-                        length = process.remaining_burst;
+                            length = process.remaining_burst;
                         else
-                        length = priority_2_qtime;
+                            length = priority_2_qtime;
                         gant.push_process(time.time, process.id, time.time, length, process.color);
                     }
                     priority_2_robin_process_id = process.id;
@@ -199,36 +193,34 @@ ProcessList.prototype.start = function() {
                 switch (priority_3_type) {
                 case 'fcfs':
                     if (interruptible == 'Y')
-                    // among priorities
-                    gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color);
                     else
-                    gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
+                        gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
                     if (priority_3_interruptible == 'Y' || interruptible == 'Y')
-                    gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color);
                     else
-                    gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
+                        gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'rr':
                     if (interruptible == 'Y') {
                         if (priority_3_remaining_quant == 0) {
                             if (process.remaining_burst < priority_3_qtime)
-                            priority_3_remaining_quant = process.remaining_burst;
+                                priority_3_remaining_quant = process.remaining_burst;
                             else
-                            priority_3_remaining_quant = priority_3_qtime;
+                                priority_3_remaining_quant = priority_3_qtime;
                             gant.push_process(time.time, process.id, time.time, 1, process.color);
                         }
-                        else {
+                        else
                             gant.initiate_or_continue_process('proc', process.id, process.color);
-                        }
                         priority_3_remaining_quant--;
                     }
                     else {
                         if (process.remaining_burst < priority_3_qtime)
-                        length = process.remaining_burst;
+                            length = process.remaining_burst;
                         else
-                        length = priority_3_qtime;
+                            length = priority_3_qtime;
                         gant.push_process(time.time, process.id, time.time, length, process.color);
                     }
                     priority_3_robin_process_id = process.id;
