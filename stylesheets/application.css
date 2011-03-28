@@ -6,6 +6,18 @@ body {padding: 15px 15px 15px 15px;}
 h1 {float: left; margin-top: 0;}
 h2.main {display: none;}
 
+div.priority_color span {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  margin-right: 3px;
+  display: block;
+}
+
+div.priority_color span.blue {background-color: #83b0da;}
+div.priority_color span.red {background-color: #f76174;}
+div.priority_color span.green {background-color: #7aca62;}
+
 select.rr_start {margin-top: 13px;}
 div.priority_types {margin-top: 5px;}
 select.priority_type {margin-top: 5px;}
