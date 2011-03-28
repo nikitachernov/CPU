@@ -86,9 +86,9 @@ ProcessList.prototype.start = function() {
                 break;
             case 'rr':
                 if (priority_2_remaining_quant == 0)
-                process = this.next_round_process_by_priority(priority_2_robin_process_id, 2);
+                    process = this.next_round_process_by_priority(priority_2_robin_process_id, 2);
                 else
-                process = this.processes[priority_2_robin_process_id];
+                    process = this.processes[priority_2_robin_process_id];
                 break;
             }
         }
