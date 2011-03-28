@@ -93,10 +93,14 @@ ProcessList.prototype.start = function() {
             }
         }
         else if (rr_start_point == 'first') {
-            priority_2_robin_process_id = 0;
-            priority_2_remaining_quant = 0;
-            priority_3_robin_process_id = 0;
-            priority_3_remaining_quant = 0;
+            if (priority_2_type == 'rr') {
+                priority_2_robin_process_id = 0;
+                priority_2_remaining_quant = 0;
+            }
+            if (priority_3_type == 'rr') {
+                priority_3_robin_process_id = 0;
+                priority_3_remaining_quant = 0;
+            }
         }
 
         if (process == false) {
@@ -115,7 +119,7 @@ ProcessList.prototype.start = function() {
                 break;
             }
         }
-        else if (rr_start_point == 'first') {
+        else if (priority_3_type == 'rr' && rr_start_point == 'first') {
             priority_3_robin_process_id = 0;
             priority_3_remaining_quant = 0;
         }
