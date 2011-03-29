@@ -52,7 +52,7 @@ div.qtime {margin-top: 3px; margin-left: 3px; display:none;}
 .timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
 
-table.result_table th {
+table.result_table thead th {
   text-align: left;
   padding: 5px 20px 5px 20px;
   background-image: url('images/ad.gif');
@@ -66,17 +66,12 @@ table.result_table th {
 #gant_area {display: none;}
 #gant {margin-left: 25px;}
 
-#result_tbl td {border-bottom: 1px solid gray; border-collapse: all; padding: 5px 5px 5px 20px;}
+#result_tbl td, #result_tbl tfoot tr.avg th {border-bottom: 1px solid gray; border-collapse: all; padding: 5px 5px 5px 20px;}
 #result_tbl thead th{cursor: pointer;}
-#result_tbl td.middle {padding:0; text-align: center; }
-#average_tbl {border-top: 1px solid gray; border-bottom: 1px solid gray; margin-top: 25px;}
-
-
-table td.row_name {width: 124px;}
-table td.arrival_time {width: 124px;}
-table td.burst_time {width: 111px;}
-table td.wait_time {width: 130px;}
-table td.turn_time {width: 135px;}
+#result_tbl tfoot tr.empty_space {height: 25px;}
+#result_tbl tfoot tr.avg th {	background: 0;border-top: 1px solid gray;text-align: left;}
+#result_tbl td.middle {padding:0; text-align: center;}
+#result_tbl tbody tr.odd td {background-color:#F0F0F6;}
 
 h2.results{display: none;}
 
