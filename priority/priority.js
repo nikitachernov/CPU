@@ -136,7 +136,7 @@ ProcessList.prototype.start = function() {
                     break;
                 case 'sjf':
                     if (priority_1_interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
@@ -154,13 +154,20 @@ ProcessList.prototype.start = function() {
                 switch (priority_2_type) {
                 case 'fcfs':
                     if (interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (priority_2_interruptible == 'Y' || interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color);
+                    if (priority_2_interruptible == 'Y')
+                        if (interruptible == 'Y')
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                        else {
+                            length = this.time_till_interrupt(process);
+                            if (process.remaining_burst < length)
+                                length = process.remaining_burst;
+                            gant.initiate_or_continue_process('proc', process.id, process.color, length);
+                        }
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
@@ -174,7 +181,7 @@ ProcessList.prototype.start = function() {
                             gant.push_process(time.time, process.id, time.time, 1, process.color);
                         }
                         else
-                            gant.initiate_or_continue_process('proc', process.id, process.color);
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                         priority_2_remaining_quant--;
                     }
                     else {
@@ -193,13 +200,20 @@ ProcessList.prototype.start = function() {
                 switch (priority_3_type) {
                 case 'fcfs':
                     if (interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color);
+                        gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (priority_3_interruptible == 'Y' || interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color);
+                    if (priority_3_interruptible == 'Y')
+                        if (interruptible == 'Y')
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                        else {
+                            length = this.time_till_interrupt(process);
+                            if (process.remaining_burst < length)
+                                length = process.remaining_burst;
+                            gant.initiate_or_continue_process('proc', process.id, process.color, length);
+                        }
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
@@ -213,7 +227,7 @@ ProcessList.prototype.start = function() {
                             gant.push_process(time.time, process.id, time.time, 1, process.color);
                         }
                         else
-                            gant.initiate_or_continue_process('proc', process.id, process.color);
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                         priority_3_remaining_quant--;
                     }
                     else {
