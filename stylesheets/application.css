@@ -28,7 +28,7 @@ div.qtime {margin-top: 3px; margin-left: 3px; display:none;}
 #nav a {float: left; margin-right: 10px;}
 
 #interruptible {margin-left: 10px;}
-#start {margin-left: 30px; width: 80px; font-weight: 700;}
+#start {width: 80px; font-weight: 700;}
 
 #ProcessList {
   background: url('images/lines.png');

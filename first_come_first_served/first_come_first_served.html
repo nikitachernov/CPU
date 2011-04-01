@@ -25,21 +25,17 @@
       <a href="../priority/priority.html">Priority</a>
     </div>
     <div class="clear">
-      <div id="control">
-        <div class="left">
-          Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          <input id="new_process" type="button" value="New process">
-        </div>
-        <div class="left">
-          <input id="start" type="button" value="Start">
-        </div>
-		<div class="left"></div>
-      </div>
+	  <table id="processes" border="1">
+		<thead>
+		<tr>
+			<th>#</th>
+			<th>Arrival time</th>
+			<th>Burst time</th>
+			<th>Action</th>
+		</tr>
+		</thead>
+	  </table>
+	  <input id="new_process" type="button" value="New Process"><input id="start" type="button" value="Start">
       <div class="clear"></div>
       <h2 class="main">
         Processes:
