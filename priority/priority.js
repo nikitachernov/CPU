@@ -60,8 +60,7 @@ ProcessList.prototype.start = function() {
     var rr_start_point = $("#rr_start").val();
     var interruptible = $("#interruptible").val();
 
-    var process,
-    length;
+    var process, length;
 
     while (this.hasActiveProcesses()) {
         switch (priority_1_type) {
