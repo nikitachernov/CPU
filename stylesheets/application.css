@@ -28,7 +28,7 @@ div.qtime {margin-top: 3px; margin-left: 3px; display:none;}
 #nav a {float: left; margin-right: 10px;}
 
 #interruptible {margin-left: 10px;}
-#start {width: 80px; font-weight: 700;}
+#start {width: 80px; font-weight: 700; }
 
 #ProcessList {
   background: url('images/lines.png');
@@ -51,7 +51,23 @@ div.qtime {margin-top: 3px; margin-left: 3px; display:none;}
 .timeline_item {float: left; position: relative; padding-top: 5px;}
 .timeline_item_text {position: absolute; width: 15px; text-align: center; top: -6px; left: -7px; font-size: 8px;}
 .timeline_item_text span {font-size: 14px;}
-
+table#processes {
+	border-collapse: collapse;
+}
+table#processes th {
+ text-align: center;
+}
+table#processes td, th {
+	padding: 0 3px;
+}
+table#processes td input.ptime{
+	text-align: right;
+	border: 1px solid black;
+	width:  80px;
+}
+.input_err {
+	background-color: #ff9999;
+}
 table.result_table thead th {
   text-align: left;
   padding: 5px 20px 5px 20px;

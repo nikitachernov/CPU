@@ -230,5 +230,6 @@ ProcessList.prototype.start = function() {
             }
         }
     }
+	
     gant.animate();
 }
