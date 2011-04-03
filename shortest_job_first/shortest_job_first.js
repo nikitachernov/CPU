@@ -15,7 +15,7 @@ ProcessList.prototype.parseProcessesInTime = function() {
         if (process == false)
             gant.initiate_or_continue_process('empty');
         else
-            gant.initiate_or_continue_process('proc', process.id, process.color);
+            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
     }
     gant.animate();
 }
@@ -29,7 +29,7 @@ ProcessList.prototype.parseProcesses = function() {
             // Draws empty space before next process arrival
             gant.push_empty(time.time, time.time, proc.arrival - time.time);
         }
-        gant.push_process(time.time, proc.id, time.time, proc.burst, proc.color);
+        gant.push_process(time.time, proc.id, time.time, proc.burst, proc.color, 1);
     }
     gant.animate();
 }
