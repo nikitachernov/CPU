@@ -31,9 +31,6 @@ function add_select_priority_type_change_handler() {
 }
 
 ProcessList.prototype.start = function() {
-    var rr_start_point = $("#rr_start").val();
-    var interruptible = $("#interruptible").val();
-    
     var priority_1_type = $("#priority_1_type").val();
     switch (priority_1_type) {
     case 'sjf':
@@ -48,7 +45,7 @@ ProcessList.prototype.start = function() {
     var priority_2_type = $("#priority_2_type").val();
     switch (priority_2_type) {
     case 'sjf':
-        var priority_2_interruptible = interruptible;
+        var priority_2_interruptible = $("#priority_2_interruptible").val();
         break;
     case 'rr':
         var priority_2_robin_process_id = 0;
@@ -60,7 +57,7 @@ ProcessList.prototype.start = function() {
     var priority_3_type = $("#priority_3_type").val();
     switch (priority_3_type) {
     case 'sjf':
-        var priority_3_interruptible = interruptible;
+        var priority_3_interruptible = $("#priority_3_interruptible").val();
         break;
     case 'rr':
         var priority_3_robin_process_id = 0;
@@ -68,6 +65,9 @@ ProcessList.prototype.start = function() {
         var priority_3_qtime = parseInt($("#priority_3_qtime").val(), 10);
         break;
     }
+
+    var rr_start_point = $("#rr_start").val();
+    var interruptible = $("#interruptible").val();
 
     var process, length;
 
@@ -143,7 +143,7 @@ ProcessList.prototype.start = function() {
                     gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (interruptible == 'Y')
+                    if (priority_1_interruptible == 'Y')
                         gant.initiate_or_continue_process('proc', process.id, process.color, 1);
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
@@ -167,8 +167,15 @@ ProcessList.prototype.start = function() {
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                    if (priority_2_interruptible == 'Y')
+                        if (interruptible == 'Y')
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                        else {
+                            length = this.time_till_interrupt(process);
+                            if (process.remaining_burst < length)
+                                length = process.remaining_burst;
+                            gant.initiate_or_continue_process('proc', process.id, process.color, length);
+                        }
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
@@ -206,8 +213,15 @@ ProcessList.prototype.start = function() {
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
                 case 'sjf':
-                    if (interruptible == 'Y')
-                        gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                    if (priority_3_interruptible == 'Y')
+                        if (interruptible == 'Y')
+                            gant.initiate_or_continue_process('proc', process.id, process.color, 1);
+                        else {
+                            length = this.time_till_interrupt(process);
+                            if (process.remaining_burst < length)
+                                length = process.remaining_burst;
+                            gant.initiate_or_continue_process('proc', process.id, process.color, length);
+                        }
                     else
                         gant.push_process(time.time, process.id, time.time, process.remaining_burst, process.color);
                     break;
