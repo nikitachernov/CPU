@@ -5,6 +5,7 @@
     <script src="../lib/vendor/jquery-1.5.min.js" type="text/javascript"></script>
     <script src="../lib/vendor/jquery.tablesorter.min.js" type="text/javascript"></script>
     <script src="../lib/Process.js" type="text/javascript"></script>
+	<script src="../lib/ProcessTable.js" type="text/javascript"></script>
     <script src="../lib/ProcessList.js" type="text/javascript"></script>
     <script src="../lib/Gant.js" type="text/javascript"></script>
     <script src="../lib/Time.js" type="text/javascript"></script>
@@ -19,46 +20,36 @@
     <h1>
       Priority
     </h1>
+	<div class="left h1_info">
+	  <select id="interruptible">
+		<option value="Y">
+		  Interruptible
+		</option>
+		<option value="N">
+		  Non-Interruptible
+		</option>
+	  </select>
+	</div>
     <div id="nav">
       <a href="../first_come_first_served/first_come_first_served.html">First Come, First Served</a>
       <a href="../shortest_job_first/shortest_job_first.html">Shortest Job First</a>
       <a href="../round_robin/round_robin.html">Round Robin</a>
     </div>
     <div class="clear">
-      <div id="control">
-        <div class="left">
-          Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          Priority:
-          <select id="process_priority">
-            <option value="1">1: high</option>
-            <option value="2">2: medium</option>
-            <option value="3">3: low</option>
-          </select>
-        </div>
-        <div class="left">
-          <input id="new_process" type="button" value="New process">
-        </div>
-        <div class="left">
-          <input id="start" type="button" value="Start">
-        </div>
-        <div class="left">
-          <select id="interruptible">
-            <option value="Y">
-              Interruptible
-            </option>
-            <option value="N">
-              Non-Interruptible
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="clear"></div>
-      <div class="interrupted_rr">
+	   <table id="processes" border="0">
+		<thead>
+		<tr>
+			<th>Arrival time</th>
+			<th>Burst time</th>
+			<th>Priority</th>
+			<th></th>
+		</tr>
+		</thead>
+	  </table>
+	  <input id="preview" type="button" value="Preview">
+	  <input id="start" type="button" value="Start">
+	  
+	  <div class="interrupted_rr">
         <div class="left">
           Interrupted Rond Robin starts with:
           <select id="rr_start" class="rr_start">
@@ -68,6 +59,7 @@
         </div>
       </div>
       <div class="clear"></div>
+	  
       <div class ="priority_types">
         <div class="priority">
           <div class="left priority_color">
@@ -121,6 +113,8 @@
         </div>
         <div class="clear"></div>
       </div>
+	  
+
       <h2 class="main">
         Processes:
       </h2>

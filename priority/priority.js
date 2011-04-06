@@ -1,6 +1,15 @@
+var process_table = new ProcessTable(true);
+
 $(document).ready(function() {
     add_select_priority_type_change_handler();
+	//add_new_process_button_click_handler();
 });
+
+function add_new_process_button_click_handler() {
+     $("#new_process").click(function() {
+       // process_table.addRoww('g');
+    });
+}
 
 function add_select_priority_type_change_handler() {
     $("select.priority_type").change(function() {

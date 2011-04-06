@@ -5,6 +5,7 @@
     <script src="../lib/vendor/jquery-1.5.min.js" type="text/javascript"></script>
     <script src="../lib/vendor/jquery.tablesorter.min.js" type="text/javascript"></script>
     <script src="../lib/Process.js" type="text/javascript"></script>
+	<script src="../lib/ProcessTable.js" type="text/javascript"></script>
     <script src="../lib/ProcessList.js" type="text/javascript"></script>
     <script src="../lib/Gant.js" type="text/javascript"></script>
     <script src="../lib/Time.js" type="text/javascript"></script>
@@ -19,38 +20,33 @@
     <h1>
       Shortest Job First
     </h1>
+	<div class="left h1_info">
+	  <select id="interruptible">
+		<option value="Y">
+		  Interruptible
+		</option>
+		<option value="N">
+		  Non-Interruptible
+		</option>
+	  </select>
+	</div>
     <div id="nav">
-      <p>
-        <a href="../first_come_first_served/first_come_first_served.html">First Come, First Served</a>
-        <a href="../round_robin/round_robin.html">Round Robin</a>
-        <a href="../priority/priority.html">Priority</a>
-      </p>
+	  <a href="../first_come_first_served/first_come_first_served.html">First Come, First Served</a>
+	  <a href="../round_robin/round_robin.html">Round Robin</a>
+	  <a href="../priority/priority.html">Priority</a>
     </div>
     <div class="clear">
-      <div id="control">
-        <div class="left">
-          Arrival time:<input type="text" id="atime" maxlength="5" size="5" value="0">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          Burst time:<input type="text" id="btime" maxlength="5" size="5" value="5">&nbsp;&nbsp;
-        </div>
-        <div class="left">
-          <input id="new_process" type="button" value="New process">
-        </div>
-        <div class="left">
-          <input id="start" type="button" value="Start">
-        </div>
-        <div class="left">
-          <select id="interruptible">
-            <option value="Y">
-              Interruptible
-            </option>
-            <option value="N">
-              Non-Interruptible
-            </option>
-          </select>
-        </div>
-      </div>
+	  <table id="processes" border="0">
+		<thead>
+		<tr>
+			<th>Arrival time</th>
+			<th>Burst time</th>
+			<th></th>
+		</tr>
+		</thead>
+	  </table>
+	  <input id="preview" type="button" value="Preview">
+	  <input id="start" type="button" value="Start">
       <div class="clear"></div>
       <h2 class="main">
         Processes:
