@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="../lib/vendor/jquery-1.5.min.js" type="text/javascript"></script>
+    <script src="../lib/vendor/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="../lib/Process.js" type="text/javascript"></script>
+	<script src="../lib/ProcessTable.js" type="text/javascript"></script>
+    <script src="../lib/ProcessList.js" type="text/javascript"></script>
+    <script src="../lib/Gant.js" type="text/javascript"></script>
+    <script src="../lib/Time.js" type="text/javascript"></script>
+    <script src="../lib/application.js" type="text/javascript"></script>
+    <script src="round_robin.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../stylesheets/application.css" type="text/css">
+    <title>
+      CPU | Round Robin
+    </title>
+  </head>
+  <body>
+    <h1>
+      Round Robin
+    </h1>
+	<div class="left h1_info">
+	  Quant time:<input type="text" id="qtime" maxlength="5" size="5" value="3">
+	</div>
+    <div id="nav">
+      <a href="../first_come_first_served/first_come_first_served.html">First-Come - First Served</a>
+      <a href="../shortest_job_first/shortest_job_first.html">Shortest Job First</a>
+      <a href="../priority/priority.html">Priority</a>
+    </div>
+    <div class="clear">
+       <table id="processes" border="0">
+		<thead>
+		<tr>
+			<th>Arrival time</th>
+			<th>Burst time</th>
+			<th></th>
+		</tr>
+		</thead>
+	  </table>
+	  <input id="preview" type="button" value="Preview">
+	  <input id="start" type="button" value="Start">
+      <div class="clear"></div>
+      <h2 class="main">
+        Processes:
+      </h2>
+      <div id="ProcessList"></div>
+      <div id="timeline">
+        Arrival time
+        <div style="float: right; margin-top: -11px;">
+          &gt;
+        </div>
+      </div>
+      <div class="clear"></div><br>
+      <div id="gant_area">
+        <h2>
+          Gantt chart:
+        </h2>
+        <div id="gant"></div><br>
+        <div class="clear"></div>
+        <h2 class="results">
+          Results:
+        </h2>
+        <table id="result_tbl" cellspacing="0" cellpadding="0" class="result_table"></table>
+      </div>
+    </div>
+  </body>
+</html>
